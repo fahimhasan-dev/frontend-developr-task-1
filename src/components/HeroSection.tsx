@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden pt-30 rounded-3xl text-white py-20 px-6 lg:px-12">
+    <section className="relative overflow-hidden pt-30 pointer-events-none pb-10  bg-gradient-to-b from-[#0b0b0f] via-[#111113] to-[#0a0a0b] rounded-b-3xl ">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
         {/* Left Content */}
         <motion.div

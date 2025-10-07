@@ -15,12 +15,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <section
-     
-    >
-      {/* background: clean dark gradient + super soft orange glow */}
-    
-
+    <section>
       {/* NAVBAR (internal padding only) */}
       <header className="shadow-md fixed top-0 left-0 w-full z-50">
         <div className="px-4 pt-4">
