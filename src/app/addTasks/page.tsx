@@ -46,7 +46,7 @@ export default function AddTaskForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-4 sm:p-6 lg:p-8 ">
+    <div className="flex justify-center items-center  p-4 sm:p-6 lg:p-8 ">
       <Card className="w-full max-w-xl shadow-2xl transition-shadow duration-300 hover:shadow-primary/50 dark:hover:shadow-primary/30">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold text-primary">

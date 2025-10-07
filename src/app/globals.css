@@ -7,7 +7,7 @@
 
 body {
   font-family: "Mona Sans", sans-serif;
-  background-color: rgb(248, 228, 201);
+  background-color: white;
 }
 @theme inline {
   --color-background: var(--background);

@@ -1,81 +1,76 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Button } from "@/components/ui/button"; // shadcn/ui Button component
 
-const HeroSection = () => {
+export default function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.2, // Each child element will animate with a delay
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section className="relative overflow-hidden pt-30 pointer-events-none pb-10  bg-gradient-to-b from-[#0b0b0f] via-[#111113] to-[#0a0a0b] rounded-b-3xl ">
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
-        {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:col-span-7 space-y-6"
-        >
-          <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05]">
-            Your <span className="text-orange-500">&quot;Personal&quot;</span>{" "}
-            Task Management Hub
-          </h1>
-
-          <p className="mt-5 max-w-xl text-base sm:text-lg text-zinc-300">
-            Organize, track, and complete your daily tasks — all in one place.
-            <br />
-            Add new tasks, update progress, and stay focused with smart filters
-            and a clean, minimal interface.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center rounded-full bg-white/95 px-6 py-3 text-sm sm:text-base font-semibold text-gray-900 shadow hover:bg-white"
-            >
-              Browse Task
-            </Link>
-            <Link
-              href="/providers"
-              className="text-sm font-semibold text-orange-400 hover:text-orange-300"
-            >
-              Become a Provider
-            </Link>
-          </div>
-
-          <div className="mt-5 inline-flex items-center gap-2 text-sm text-zinc-300">
-            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-orange-500 ring-4 ring-orange-500/20" />
-            18k+ bookings completed with 4.9 average rating
-          </div>
-        </motion.div>
-
-        {/* Right Image */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-none"
-        >
-          <div className="relative w-full max-w-md aspect-square sm:aspect-[4/3] lg:max-w-lg">
-            {/* Hero Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative w-full h-full"
-            >
-              <Image
-                src="https://i.ibb.co.com/SwBwfW1s/i-Stock-1309046331111.webp"
-                alt="Community Services Illustration"
-                fill
-                priority
-                className="object-cover rounded-2xl shadow-xl"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+    <section className="relative flex items-center justify-center min-h-[calc(100vh-180px)] bg-gray-50 dark:bg-gray-950 py-10 px-4 overflow-hidden">
+      {/* Background Gradients/Shapes (Optional for a more dynamic look) */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob dark:from-primary/10" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-teal-300/20 to-transparent rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:from-teal-600/10" />
       </div>
+
+      <motion.div
+        className="relative z-10 text-center max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Main Heading */}
+        <motion.h1 
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-50 leading-tight mb-4"
+          variants={itemVariants}
+        >
+          Effortless task management,{" "}
+          <span className="text-yellow-500 dark:text-yellow-400">anytime</span>
+        </motion.h1>
+
+        {/* Subheading/Description */}
+        <motion.p 
+          className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+          variants={itemVariants}
+        >
+          Manage tasks and projects easily with an all-in-one platform designed for seamless collaboration.
+        </motion.p>
+
+        {/* Call to Action Buttons */}
+        <motion.div 
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-8"
+          variants={itemVariants}
+        >
+          <Button 
+            size="lg" 
+          
+          >
+            Request a Demo
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-2 border-primary text-primary hover:bg-primary/10 dark:border-primary-foreground dark:text-primary-foreground dark:hover:bg-primary/20 font-semibold text-lg px-8 py-3 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+          >
+            Contact Sales
+          </Button>
+        </motion.div>
+      </motion.div>
     </section>
   );
-};
-
-export default HeroSection;
+}

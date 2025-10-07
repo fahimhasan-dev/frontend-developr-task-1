@@ -3,7 +3,6 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// 📌 import Task type from the store file
 import { useTaskStore, Task } from "@/store/taskStore"; 
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -18,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-// ... (rest of the imports)
+
 
 // Define the Zod schema
 const schema = z.object({
@@ -29,7 +28,6 @@ const schema = z.object({
 
 type TaskFormValues = z.infer<typeof schema>;
 
-// Form Props: 'task' is optional, 'onClose' is required to close the modal/dialog
 interface TaskFormProps {
   task?: Task;
   onClose: () => void;
@@ -39,7 +37,7 @@ export default function TaskForm({ task, onClose }: TaskFormProps) {
   // Determine if it's Edit mode
   const isEditMode = !!task;
 
-  // 🔴 FIX: Get store actions using the correct name 'updateTask'
+
   const { addTask, updateTask } = useTaskStore(); 
 
   const form = useForm<TaskFormValues>({
@@ -54,7 +52,7 @@ export default function TaskForm({ task, onClose }: TaskFormProps) {
 
   const onSubmit = (values: TaskFormValues) => {
     if (isEditMode && task?.id) {
-      // ✅ FIX APPLIED: Use updateTask instead of editTask
+    
       updateTask(task.id, values); 
     } else {
       // 📌 ADD MODE: Add a new task
@@ -72,9 +70,9 @@ export default function TaskForm({ task, onClose }: TaskFormProps) {
 
   return (
     <Form {...form}>
-      {/* ... (rest of the form structure remains the same) */}
+   
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 p-1"> 
-        {/* ... (Title Field) */}
+        
         <FormField
           control={form.control}
           name="title"
@@ -89,7 +87,7 @@ export default function TaskForm({ task, onClose }: TaskFormProps) {
           )}
         />
         
-        {/* ... (Description Field) */}
+      
         <FormField
           control={form.control}
           name="description"
@@ -119,9 +117,9 @@ export default function TaskForm({ task, onClose }: TaskFormProps) {
                     <SelectValue placeholder="Select status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Pending">🔴 Pending</SelectItem>
-                    <SelectItem value="In Progress">🟡 In Progress</SelectItem>
-                    <SelectItem value="Completed">🟢 Completed</SelectItem>
+                    <SelectItem value="Pending">Pending</SelectItem>
+                    <SelectItem value="In Progress">In Progress</SelectItem>
+                    <SelectItem value="Completed">Completed</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>

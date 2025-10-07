@@ -21,10 +21,9 @@ export default function Navbar() {
         <div className="px-4 pt-4">
           <div
             className="
-              mx-auto max-w-[1780px]
-              rounded-full border border-orange-500/25 bg-[#0c0c0c33]
-              bg-[radial-gradient(900px_380px_at_70%_40%,rgba(255,115,0,0.10),transparent_65%)] backdrop-blur
-              ring-1 ring-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              mx-auto max-w-full
+               bg-white
+              
               px-4 sm:px-6
             "
           >
@@ -35,7 +34,7 @@ export default function Navbar() {
                   href="/"
                   className="inline-flex items-center gap-2 px-2 py-1"
                 >
-                  <span className="text-xl font-extrabold tracking-tight">
+                  <span className="text-xl font-extrabold text-black tracking-tight">
                     Task
                   </span>
                   <span className="hidden sm:inline-flex items-center rounded-full border border-orange-500/30 px-2 py-0.5 text-xs text-orange-400">
@@ -46,27 +45,20 @@ export default function Navbar() {
 
               {/* Desktop links */}
               <nav className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal gap-1 px-1">
+                <ul className="menu menu-horizontal gap-1 px-1 text-black">
                   <li>
                     <Link
                       href="/"
-                      className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
+                      className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-[#674ddb]"
                     >
                       Home
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/task"
-                      className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
-                    >
-                      Task List View
-                    </Link>
-                  </li>
+
                   <li>
                     <Link
                       href="/addTasks"
-                      className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
+                      className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-[#674ddb]"
                     >
                       Add Tasks
                     </Link>
