@@ -1,15 +1,10 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import AddTaskForm from "./addTasks/page";
+
 
 export default function Home() {
   return (
     <div>
-      <main>
-        <Navbar></Navbar>
-      </main>
-      <footer>
-        <Footer></Footer>
-      </footer>
+   <AddTaskForm></AddTaskForm>
     </div>
   );
 }

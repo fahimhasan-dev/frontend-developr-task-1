@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import HeroSection from "./HeroSection";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,19 +14,12 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-
-
   return (
     <section
-      className="
-        relative isolate
-        w-full min-h-[92vh]
-        overflow-hidden
-      "
+     
     >
       {/* background: clean dark gradient + super soft orange glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b0b0f] via-[#111113] to-[#0a0a0b] rounded-b-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_380px_at_70%_40%,rgba(255,115,0,0.10),transparent_65%)]" />
+    
 
       {/* NAVBAR (internal padding only) */}
       <header className="shadow-md fixed top-0 left-0 w-full z-50">
@@ -35,8 +27,8 @@ export default function Navbar() {
           <div
             className="
               mx-auto max-w-[1780px]
-              rounded-full border border-orange-500/25
-              bg-white/8 backdrop-blur
+              rounded-full border border-orange-500/25 bg-[#0c0c0c33]
+              bg-[radial-gradient(900px_380px_at_70%_40%,rgba(255,115,0,0.10),transparent_65%)] backdrop-blur
               ring-1 ring-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)]
               px-4 sm:px-6
             "
@@ -60,18 +52,17 @@ export default function Navbar() {
               {/* Desktop links */}
               <nav className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal gap-1 px-1">
-             
                   <li>
                     <Link
-                      href="/"   
+                      href="/"
                       className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
                     >
-                    Home
+                      Home
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/task"   
+                      href="/task"
                       className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
                     >
                       Task List View
@@ -79,10 +70,10 @@ export default function Navbar() {
                   </li>
                   <li>
                     <Link
-                      href="/contact"   
+                      href="/addTasks"
                       className="btn  btn-ghost btn-sm rounded-full text-[15px] tracking-tight hover:bg-orange-500/10 hover:text-orange-400"
                     >
-                      Contact
+                      Add Tasks
                     </Link>
                   </li>
                 </ul>
@@ -125,9 +116,6 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-
-      {/* HERO CONTENT */}
-      <HeroSection />
 
       {/* Mobile drawer */}
       {menuOpen && (

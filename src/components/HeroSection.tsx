@@ -64,7 +64,7 @@ const HeroSection = () => {
               className="relative w-full h-full"
             >
               <Image
-                src="https://i.ibb.co/SwBwfW1s/i-Stock-1309046331111.webp"
+                src="https://i.ibb.co.com/SwBwfW1s/i-Stock-1309046331111.webp"
                 alt="Community Services Illustration"
                 fill
                 priority

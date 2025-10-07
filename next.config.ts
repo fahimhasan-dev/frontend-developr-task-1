@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
-    domains: ["i.ibb.co"], // ✅ Add allowed domain
+    domains: ["i.ibb.co.com"], // ✅ correct domain
   },
 };
 
 export default nextConfig;
+
